@@ -15,6 +15,7 @@ const headerStyle = {
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
+  gap: "20px"
 };
 
 export default function AppHeader() {
@@ -49,6 +50,7 @@ export default function AppHeader() {
         key: 'updatable',
         type: 'success',
         content: 'Loaded!',
+        duration: 0.5,
       });
     }
   }, [loading, messageApi]);
@@ -57,6 +59,7 @@ export default function AppHeader() {
     messageApi.open({
       type: "success",
       content: "Success!",
+      duration: 0.9,
     });
   }
   const error = () => {
@@ -64,6 +67,7 @@ export default function AppHeader() {
     messageApi.open({
       type: 'error',
       content: 'Error!',
+      duration: 0.9,
     });
   };
 
