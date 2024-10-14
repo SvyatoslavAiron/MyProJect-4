@@ -19,3 +19,6 @@
 * {
   -webkit-tap-highlight-color: transparent;
 }
+body {
+  overflow-x: hidden;
+}

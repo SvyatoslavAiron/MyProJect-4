@@ -1,3 +1,4 @@
+import styles from "./styles.module.scss";
 import { Button, Drawer, Layout, Modal, Select, Space, message } from "antd";
 import { useCrypto } from "../../context/crypto-context";
 import { useEffect, useRef, useState } from "react";
@@ -15,7 +16,7 @@ const headerStyle = {
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  gap: "20px"
+  gap: "20px",
 };
 
 export default function AppHeader() {
@@ -40,16 +41,16 @@ export default function AppHeader() {
   useEffect(() => {
     if (loading) {
       messageApi.open({
-        key: 'updatable',
-        type: 'loading',
-        content: 'Loading...',
+        key: "updatable",
+        type: "loading",
+        content: "Loading...",
         duration: 0,
       });
     } else {
       messageApi.open({
-        key: 'updatable',
-        type: 'success',
-        content: 'Loaded!',
+        key: "updatable",
+        type: "success",
+        content: "Loaded!",
         duration: 0.5,
       });
     }
@@ -61,12 +62,12 @@ export default function AppHeader() {
       content: "Success!",
       duration: 0.9,
     });
-  }
+  };
   const error = () => {
     messageApi.destroy();
     messageApi.open({
-      type: 'error',
-      content: 'Error!',
+      type: "error",
+      content: "Error!",
       duration: 0.9,
     });
   };
@@ -80,8 +81,8 @@ export default function AppHeader() {
     <>
       {contextHolder}
       <Layout.Header style={headerStyle}>
-        
         <Select
+          className={styles.select}
           ref={selectRef}
           // onClick={() => setSelect((prev) => !prev)}
           // open={select || select}
@@ -109,7 +110,7 @@ export default function AppHeader() {
         <Button onClick={() => setDrawer(true)} type="primary">
           add Asset
         </Button>
-  
+
         <Modal
           title={null}
           open={modal}
@@ -119,15 +120,21 @@ export default function AppHeader() {
         >
           <CoinInfoModal coin={coin} />
         </Modal>
-  
+
         <Drawer
           title="Add Asset"
           width={600}
-          onClose={() => { setDrawer(false)}}
+          onClose={() => {
+            setDrawer(false);
+          }}
           open={drawer}
           destroyOnClose
         >
-          <AddAssetForm handleSuccess={success} onFinishFailedForm={error} onClose={() => setDrawer(false)} />
+          <AddAssetForm
+            handleSuccess={success}
+            onFinishFailedForm={error}
+            onClose={() => setDrawer(false)}
+          />
         </Drawer>
       </Layout.Header>
     </>
