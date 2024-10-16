@@ -30,7 +30,7 @@ export default function AppHeader() {
 
   useEffect(() => {
     const keypress = (e) => {
-      if (e.key === "/" || e.key === ".") {
+      if (e.key === "/") {
         // setSelect((prev) => !prev);
         selectRef.current.focus();
       }
@@ -80,7 +80,7 @@ export default function AppHeader() {
   return (
     <>
       {contextHolder}
-      <Layout.Header style={headerStyle}>
+      <Layout.Header id="header" style={headerStyle}>
         <Select
           className={styles.select}
           ref={selectRef}

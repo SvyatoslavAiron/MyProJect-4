@@ -48,7 +48,7 @@ export default function PortfolioChart() {
   // };
 
   return (
-    <div className="chart-container">
+    <div className="chart-container" id="chart">
       <Pie data={dataChart} />
     </div>
   );

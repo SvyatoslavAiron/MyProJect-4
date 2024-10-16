@@ -94,14 +94,14 @@ export default function AppSider() {
                     }
                     suffix="$"
                   />
-                  <div
+                  <a href="#header"
                     style={{
                       width: "20px",
                       height: "20px",
                       borderRadius: "50%",
                       backgroundColor: colors[index],
                     }}
-                  ></div>
+                  ></a>
                 </div>
                 <List
                   size="small"

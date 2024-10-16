@@ -181,7 +181,7 @@ export default function AssetsTable() {
     },
   ];
   return (
-    <div className="table-wrapper">
+   <div className="table-wrapper">
       <div className="table-container">
         <Table
           pagination={false}
@@ -189,6 +189,6 @@ export default function AssetsTable() {
           dataSource={dataTable}
         ></Table>
       </div>
-    </div>
+   </div>
   );
 }

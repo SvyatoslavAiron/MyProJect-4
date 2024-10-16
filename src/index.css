@@ -19,6 +19,9 @@
 * {
   -webkit-tap-highlight-color: transparent;
 }
+html {
+  scroll-behavior: smooth;
+}
 body {
   overflow-x: hidden;
 }
@@ -36,7 +39,10 @@ body {
   width: 400px;
 }
 .table-container {
-  min-width: 471px;
+  min-width: 500px;
+}
+.statistics__item {
+  display: inline;
 }
 @media (max-width: 792px) {
   .wrapper-content {
@@ -55,8 +61,20 @@ body {
   }
 }
 @media (max-width: 503px) {
- .table-wrapper {
-  max-width: 470px;
-  overflow-x: auto;
- }
+  .table-wrapper {
+    max-width: 470px;
+    overflow-x: auto;
+  }
+}
+@media (max-width: 384px) {
+  .statistics {
+    display: flex;
+    flex-direction: column;
+  }
+  .statistics__item {
+    margin-bottom: 10px;
+  }
+  .statistics__item:last-child {
+    margin-bottom: 0;
+  }
 }
