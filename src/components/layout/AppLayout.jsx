@@ -1,3 +1,4 @@
+import "../../index.css";
 import { Layout } from "antd";
 import AppHeader from "./AppHeader";
 import AppSider from "./AppSider";
@@ -8,10 +9,10 @@ export default function AppLayout() {
     <div className="wrapper" style={{ backgroundColor: "#001529" }}>
       <Layout style={{ maxWidth: "2000px", margin: "0 auto" }}>
         <AppHeader />
-        <Layout>
+        <div className="wrapper-content">
           <AppSider />
-          <AppContent />
-        </Layout>
+          <AppContent  />
+        </div>
       </Layout>
     </div>
   );
