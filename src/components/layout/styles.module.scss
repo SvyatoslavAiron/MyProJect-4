@@ -1,0 +1,27 @@
+aside {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: #001529;
+  flex: 0 0 25%;
+  @media (max-width: 792px) {
+    order: 1;
+  }
+}
+
+@media (max-width: 460px) {
+  .select {
+    height: 38px !important;
+  }
+}
+
+@media (max-width: 1221px) {
+  .aside {
+    flex: 0 0 305px !important;
+  }
+}
+@media (max-width: 792px) {
+  .aside {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

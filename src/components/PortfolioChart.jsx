@@ -48,15 +48,7 @@ export default function PortfolioChart() {
   // };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        marginBottom: "1rem",
-        height: "400px",
-        width: "400px",
-      }}
-    >
+    <div className="chart-container" id="chart">
       <Pie data={dataChart} />
     </div>
   );

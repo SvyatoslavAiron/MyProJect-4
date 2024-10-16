@@ -1,13 +1,9 @@
-import { Layout, Card, Statistic, List, Skeleton, Tag } from "antd";
+import styles from "./styles.module.scss";
+import { Card, Statistic, List, Skeleton, Tag } from "antd";
 import { ArrowDownOutlined, ArrowUpOutlined } from "@ant-design/icons";
 import { capitalize } from "../../utils.js";
 import { useContext } from "react";
 import CryptoContext from "../../context/crypto-context.jsx";
-
-const siderStyle = {
-  padding: "1rem",
-  paddingTop: "0",
-};
 
 export default function AppSider() {
   const { assets, loading, generateColors } = useContext(CryptoContext);
@@ -17,7 +13,7 @@ export default function AppSider() {
   return (
     <>
       {loading ? (
-        <Layout.Sider width="25%" style={siderStyle}>
+        <aside className={styles.aside}>
           <Card style={{ marginBottom: "1rem", minHeight: "250px" }}>
             <Skeleton.Input
               active
@@ -60,9 +56,9 @@ export default function AppSider() {
             />
             <Skeleton.Input active block style={{ height: "116px" }} />
           </Card>
-        </Layout.Sider>
+        </aside>
       ) : (
-        <Layout.Sider width="25%" style={siderStyle}>
+        <aside className={styles.aside}>
           {assets.map((asset, index) => {
             if (nameCount[asset.id]) {
               nameCount[asset.id]++;
@@ -98,14 +94,14 @@ export default function AppSider() {
                     }
                     suffix="$"
                   />
-                  <div
+                  <a href="#header"
                     style={{
                       width: "20px",
                       height: "20px",
                       borderRadius: "50%",
                       backgroundColor: colors[index],
                     }}
-                  ></div>
+                  ></a>
                 </div>
                 <List
                   size="small"
@@ -150,7 +146,7 @@ export default function AppSider() {
               </Card>
             );
           })}
-        </Layout.Sider>
+        </aside>
       )}
     </>
   );

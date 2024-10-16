@@ -9,6 +9,7 @@ const contentStyle = {
   lineHeight: "120px",
   color: "#fff",
   backgroundColor: "#001529",
+  marginBottom: "20px",
 };
 
 export default function AppContent() {

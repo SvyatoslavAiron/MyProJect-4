@@ -14,19 +14,25 @@ export default function CoinInfoModal({ coin }) {
         </Typography.Title>
       </Flex>
       <Divider />
-      <Typography.Paragraph>
-        <Typography.Text strong>1 hour: </Typography.Text>
-        <Tag color={coin.priceChange1h > 0 ? "green" : "red"}>
-          {coin.priceChange1h}%
-        </Tag>
-        <Typography.Text strong>1 day: </Typography.Text>
-        <Tag color={coin.priceChange1d > 0 ? "green" : "red"}>
-          {coin.priceChange1h}%
-        </Tag>
-        <Typography.Text strong>1 week: </Typography.Text>
-        <Tag color={coin.priceChange1w > 0 ? "green" : "red"}>
-          {coin.priceChange1h}%
-        </Tag>
+      <Typography.Paragraph className="statistics">
+        <div className="statistics__item">
+          <Typography.Text strong>1 hour: </Typography.Text>
+          <Tag color={coin.priceChange1h > 0 ? "green" : "red"}>
+            {coin.priceChange1h}%
+          </Tag>
+        </div>
+        <div className="statistics__item">
+          <Typography.Text strong>1 day: </Typography.Text>
+          <Tag color={coin.priceChange1d > 0 ? "green" : "red"}>
+            {coin.priceChange1h}%
+          </Tag>
+        </div>
+        <div className="statistics__item">
+          <Typography.Text strong>1 week: </Typography.Text>
+          <Tag color={coin.priceChange1w > 0 ? "green" : "red"}>
+            {coin.priceChange1h}%
+          </Tag>
+        </div>
       </Typography.Paragraph>
       <Typography.Paragraph>
         <Typography.Text strong>

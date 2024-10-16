@@ -181,6 +181,14 @@ export default function AssetsTable() {
     },
   ];
   return (
-    <Table pagination={false} columns={columns} dataSource={dataTable}></Table>
+   <div className="table-wrapper">
+      <div className="table-container">
+        <Table
+          pagination={false}
+          columns={columns}
+          dataSource={dataTable}
+        ></Table>
+      </div>
+   </div>
   );
 }
