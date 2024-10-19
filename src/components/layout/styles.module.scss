@@ -3,9 +3,6 @@ aside {
   padding-right: 1rem;
   background-color: #001529;
   flex: 0 0 25%;
-  @media (max-width: 792px) {
-    order: 1;
-  }
 }
 
 @media (max-width: 460px) {
@@ -23,5 +20,6 @@ aside {
   .aside {
     padding-left: 0;
     padding-right: 0;
+    order: 1;
   }
 }
