@@ -94,7 +94,9 @@ export default function AppSider() {
                     }
                     suffix="$"
                   />
-                  <a href="#header"
+                  <a
+                    href="#header"
+                    tabIndex="-1"
                     style={{
                       width: "20px",
                       height: "20px",
