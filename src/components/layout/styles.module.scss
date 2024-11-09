@@ -4,6 +4,65 @@ aside {
   background-color: #001529;
   flex: 0 0 25%;
 }
+.buttonRemoveWrapper {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  max-width: 25px;
+  max-height: 25px;
+  min-width: 20px;
+  width: 8%;
+}
+.buttonRemove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  &:before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    background-color: #fff;
+    transition: all 0.3s;
+  }
+  &:hover {
+    &:before,
+    &::after {
+      width: 60%;
+    }
+    &::after {
+      transform: rotate(45deg);
+    }
+    &::before {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .buttonRemove {
+    &:before,
+    &::after {
+      width: 60%;
+    }
+    &::after {
+      transform: rotate(45deg);
+    }
+    &::before {
+      transform: rotate(-45deg);
+    }
+  }
+}
 
 @media (max-width: 460px) {
   .select {

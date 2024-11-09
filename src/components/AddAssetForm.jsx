@@ -13,7 +13,11 @@ import {
 import { useRef, useState } from "react";
 import { useCrypto } from "../context/crypto-context";
 
-export default function AddAssetForm({ onClose, onFinishFailedForm, handleSuccess }) {
+export default function AddAssetForm({
+  onClose,
+  onFinishFailedForm,
+  handleSuccess,
+}) {
   const { crypto, loading, addAsset } = useCrypto();
   const [coin, setCoin] = useState(null);
   const [form] = Form.useForm();
@@ -25,11 +29,11 @@ export default function AddAssetForm({ onClose, onFinishFailedForm, handleSucces
       type: "success",
       content: "Success!",
     });
-  }
+  };
   const error = () => {
     messageApi.open({
-      type: 'error',
-      content: 'Error!',
+      type: "error",
+      content: "Error!",
     });
   };
 
@@ -162,6 +166,7 @@ export default function AddAssetForm({ onClose, onFinishFailedForm, handleSucces
           ]}
         >
           <InputNumber
+            autoFocus
             placeholder="Enter coin amount"
             onChange={handleAmountChange}
             style={{ width: "100%" }}

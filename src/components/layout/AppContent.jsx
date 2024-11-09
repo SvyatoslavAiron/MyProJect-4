@@ -19,17 +19,19 @@ export default function AppContent() {
     acc[c.id] = c.price;
     return acc;
   }, {});
+  const totalPortfolioValue = assets
+    .map((asset) => {
+      const price = cryptoPriceMap[asset.id];
+      return price ? asset.amount * price : 0;
+    })
+    .reduce((acc, v) => acc + v, 0);
 
   return (
     <Layout.Content style={contentStyle}>
       <Typography.Title level={3} style={{ textAlign: "left", color: "#fff" }}>
-        Portfolio:{" "}
-        {assets
-          .map((asset) => asset.amount * cryptoPriceMap[asset.id])
-          .reduce((acc, v) => (acc += v), 0)
-          .toFixed(2)}
-        $
+        Portfolio: {totalPortfolioValue.toFixed(2)}$
       </Typography.Title>
+
       <div className="ant-layout-content__container">
         <PortfolioChart />
         <AssetsTable />

@@ -5,7 +5,7 @@ import { useCrypto } from "../context/crypto-context";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function PortfolioChart() {
-  const { assets, generateColors } = useCrypto();
+  const { assets, loading, generateColors } = useCrypto();
 
   const nameCount = {};
   const labels = [];
@@ -49,7 +49,7 @@ export default function PortfolioChart() {
 
   return (
     <div className="chart-container" id="chart">
-      <Pie data={dataChart} />
+      <Pie data={loading ? { labels: [], datasets: [] } : dataChart} />
     </div>
   );
 }

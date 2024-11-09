@@ -11,7 +11,13 @@ const CryptoContext = createContext({
 export function CryptoContextProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const [crypto, setCrypto] = useState([]);
-  const [assets, setAssets] = useState([]);
+  const [assets, setAssets] = useState(() => {
+    const storedData = JSON.parse(localStorage.getItem("data")) || [];
+    return storedData.map((asset) => ({
+      ...asset,
+      date: asset.date ? new Date(asset.date) : null,
+    }));
+  });
 
   function mapAssets(assets, result) {
     return assets.map((asset) => {
@@ -30,18 +36,29 @@ export function CryptoContextProvider({ children }) {
   useEffect(() => {
     async function preload() {
       const { result } = await fakeFetchCrypto();
-      const assets = await fakeFetchAssets();
-
-      setAssets(mapAssets(assets, result));
+      if (assets.length === 0) {
+        const fetchedAssets = await fakeFetchAssets();
+        setAssets(mapAssets(fetchedAssets, result));
+      } else {
+        setAssets(mapAssets(assets, result));
+      }
       setCrypto(result);
       setLoading(false);
     }
     preload();
-  });
+  }, []);
 
   function addAsset(newAsset) {
     setAssets((prev) => mapAssets([...prev, newAsset], crypto));
   }
+
+  function removeAsset(assetId) {
+    setAssets((prev) => prev.filter((asset) => asset.id !== assetId));
+  }
+
+  useEffect(() => {
+    localStorage.setItem("data", JSON.stringify(assets));
+  }, [assets]);
 
   const generateColors = () => {
     const colors = [];
@@ -54,7 +71,7 @@ export function CryptoContextProvider({ children }) {
 
   return (
     <CryptoContext.Provider
-      value={{ crypto, assets, loading, addAsset, generateColors }}
+      value={{ crypto, assets, loading, addAsset, removeAsset, generateColors }}
     >
       {children}
     </CryptoContext.Provider>

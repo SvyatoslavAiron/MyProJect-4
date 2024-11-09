@@ -78,3 +78,6 @@ body {
     margin-bottom: 0;
   }
 }
+.ant-card-body {
+  position: relative;
+}

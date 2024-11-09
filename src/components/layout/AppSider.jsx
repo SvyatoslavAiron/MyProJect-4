@@ -6,7 +6,8 @@ import { useContext } from "react";
 import CryptoContext from "../../context/crypto-context.jsx";
 
 export default function AppSider() {
-  const { assets, loading, generateColors } = useContext(CryptoContext);
+  const { assets, loading, generateColors, removeAsset } =
+    useContext(CryptoContext);
   const colors = generateColors();
   const nameCount = {};
 
@@ -94,16 +95,13 @@ export default function AppSider() {
                     }
                     suffix="$"
                   />
-                  <a
-                    href="#header"
-                    tabIndex="-1"
-                    style={{
-                      width: "20px",
-                      height: "20px",
-                      borderRadius: "50%",
-                      backgroundColor: colors[index],
-                    }}
-                  ></a>
+                 <div className={styles.buttonRemoveWrapper}>
+                    <button
+                      className={styles.buttonRemove}
+                      onClick={() => removeAsset(asset.id)}
+                      style={{ backgroundColor: colors[index] }}
+                    ></button>
+                 </div>
                 </div>
                 <List
                   size="small"

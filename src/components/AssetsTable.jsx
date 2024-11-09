@@ -5,7 +5,7 @@ import Highlighter from "react-highlight-words";
 import { useCrypto } from "../context/crypto-context";
 
 export default function AssetsTable() {
-  const { assets } = useCrypto();
+  const { assets, loading } = useCrypto();
   const [searchText, setSearchText] = useState("");
   const [searchedColumn, setSearchedColumn] = useState("");
   const searchInput = useRef(null);
@@ -181,14 +181,14 @@ export default function AssetsTable() {
     },
   ];
   return (
-   <div className="table-wrapper">
+    <div className="table-wrapper">
       <div className="table-container">
         <Table
           pagination={false}
           columns={columns}
-          dataSource={dataTable}
+          dataSource={!loading && dataTable}
         ></Table>
       </div>
-   </div>
+    </div>
   );
 }
