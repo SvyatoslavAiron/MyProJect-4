@@ -6,7 +6,7 @@ window.onblur = function () {
   document.title = "Возвращайтесь  😊";
 };
 window.onfocus = function () {
-  document.title = "MyProjectS";
+  document.title = "MyProJect-4";
 };
 
 createRoot(document.getElementById("root")).render(<App />);
